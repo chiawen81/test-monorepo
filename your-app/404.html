@@ -8,11 +8,15 @@
 
 
     (function () {
+      console.log(11111111)
+      console.log(location.pathname)
+      console.log(location)
+      alert("!!!!!")
       sessionStorage.redirect = location.href;
-      var redirectTo = "/your-app/";
+      var redirectTo = "/test-monorepo/your-app/";
 
       if (location.pathname.startsWith("/your-app/")) {
-        redirectTo = "/your-app/";
+        redirectTo = "/test-monorepo/your-app/";
       };
 
       location.replace(redirectTo);
