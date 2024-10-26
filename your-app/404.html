@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <title>Page Not Found</title>
+  <script type="text/javascript">
+    // 設定保持的 URL 段數，這裡應該是 2
+    var pathSegmentsToKeep = 2;
+    // 設定允許的子路徑，以確保重定向的應用程式
+    var allowedPathSegments = ['your-app'];
+
+    var l = window.location;
+    var pathSegments = l.pathname.split('/');
+
+    var shouldRedirect =
+      pathSegments.length > pathSegmentsToKeep &&
+      allowedPathSegments.indexOf(pathSegments[pathSegmentsToKeep - 1]) !== -1;
+
+    if (shouldRedirect) {
+      window.location.replace(
+        l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') + '/test-monorepo/your-app/' + l.search + l.hash
+      );
+    }
+  </script>
+</head>
+
+<body>
+  <h1>Page Not Found</h1>
+  <p>Redirecting to the home page...</p>
+</body>
+
+</html>
