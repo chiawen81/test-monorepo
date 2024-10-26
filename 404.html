@@ -4,7 +4,20 @@
 <head>
   <meta charset="utf-8" />
   <title>Single Page Apps for GitHub Pages</title>
-  <script src="/test-monorepo/your-app/redirect.js"></script><!-- 引用外部 JS 文件 -->
+  <!-- <script src="/test-monorepo/your-app/redirect.js"></script>引用外部 JS 文件 -->
+  <script>
+    (function () {
+      console.log(location);
+      sessionStorage.redirect = location.href;
+      var redirectTo = "/test-monorepo/your-app/";
+
+      if (location.pathname.startsWith("/your-app/")) {
+        redirectTo = "/test-monorepo/your-app/";
+      };
+
+      location.replace(redirectTo);
+    })();
+  </script>
 
 <body>
   <div id="not-found-content" style="display: none">
