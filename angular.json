@@ -36,6 +36,7 @@
           },
           "configurations": {
             "production": {
+              "baseHref": "/test-monorepo/your-app/",
               "budgets": [
                 {
                   "type": "initial",

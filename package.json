@@ -8,7 +8,7 @@
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "predeploy": "ng build your-app --configuration=production && mkdir -p dist/your-app && touch dist/your-app/.nojekyll",
-    "deploy": "ngh --dir=dist/your-app --repo=https://github.com/chiawen81/test-monorepo.git --base-href=/your-app/"
+    "deploy": "ngh --dir=dist/your-app --repo=https://github.com/chiawen81/test-monorepo.git"
   },
   "private": true,
   "dependencies": {
