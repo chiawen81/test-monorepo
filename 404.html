@@ -3,13 +3,35 @@
 
 <head>
   <meta charset="utf-8" />
-  <title>Page Not Found</title>
+  <title>Single Page Apps for GitHub Pages</title>
   <script src="/test-monorepo/your-app/redirect.js"></script><!-- 引用外部 JS 文件 -->
-</head>
+
+  <!-- <script type="text/javascript">
+    // ============= 倒轉SPA路由寫法二 ============
+    (function () {
+      console.log(11111111)
+      console.log(location.pathname)
+      console.log(location)
+      alert("11111111")
+      sessionStorage.redirect = location.href;
+      var redirectTo = "/test-monorepo/your-app/";
+
+      if (location.pathname.startsWith("/your-app/")) {
+        alert("222222")
+        redirectTo = "/test-monorepo/your-app/";
+      };
+
+      location.replace(redirectTo);
+    })();
+  </script>
+</head> -->
 
 <body>
-  <h1>Page Not Found</h1>
-  <p>Redirecting to the home page...</p>
+  <div id="not-found-content" style="display: none">
+    <h1>404</h1>
+    <p>此頁面不存在。請選擇以下應用2：</p>
+    <ul id="app-list"></ul>
+  </div>
 </body>
 
 </html>
