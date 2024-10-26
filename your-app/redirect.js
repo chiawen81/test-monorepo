@@ -1,13 +1,13 @@
 
-var pathSegmentsToKeep = 2;
+var projectLevek = 2;
 // NOTE:專案在第幾層目錄
-
+var pathSegmentsToKeep = 2 + 1;
+// NOTE:加上網域後面接的 "/"
 var allowedPathSegments = ['your-app'];
 // NOTE:目前有的 project
 
 var l = window.location;
-var pathSegments = l.pathname.split('/') - 1;
-// NOTE:去除網域後面接的 "/"
+var pathSegments = l.pathname.split('/');
 
 var shouldRedirect =
   (pathSegments.length > pathSegmentsToKeep) &&
