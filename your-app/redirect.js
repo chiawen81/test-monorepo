@@ -14,6 +14,11 @@ var shouldRedirect =
   (allowedPathSegments.indexOf(pathSegments[pathSegmentsToKeep - 1]) !== -1);
 
 if (shouldRedirect) {
-  let url = l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') + '/test-monorepo/your-app/' + l.search + l.hash;
+  let url = l.protocol + '//' + l.hostname +
+    (l.port ? ':' + l.port : '') +
+    '/test-monorepo/your-app/' +
+    pathSegments.slice(pathSegmentsToKeep).join('/') +  // 保留未找到的路徑部分
+    (l.search || '') +
+    (l.hash || '');
   window.location.replace(url);
 }
