@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <title>Single Page Apps for GitHub Pages</title>
+  <script type="text/javascript">
+    // Single Page Apps for GitHub Pages
+    var allowedPathSegments = ['your-app']; // 調整成您應用的路徑
+    var pathSegmentsToKeep = 1;// GitHub Pages 預設為組織名稱和儲存庫名稱，您可以依據實際情況調整。
+    var l = window.location;
+    var pathSegments = l.pathname.split('/');
+    var shouldRedirect =
+      pathSegments.length > pathSegmentsToKeep &&
+      allowedPathSegments.indexOf(pathSegments[pathSegmentsToKeep]) !== -1;
+
+    if (shouldRedirect) {
+      l.replace(
+        l.protocol +
+        '//' +
+        l.hostname +
+        (l.port ? ':' + l.port : '') +
+        l.pathname
+          .split('/')
+          .slice(0, 1 + pathSegmentsToKeep)
+          .join('/') +
+        '/?/' +
+        l.pathname
+          .slice(1)
+          .split('/')
+          .slice(pathSegmentsToKeep)
+          .join('/')
+          .replace(/&/g, '~and~') +
+        (l.search ? '&' + l.search.slice(1).replace(/&/g, '~and~') : '') +
+        l.hash,
+      );
+    } else {
+      document.addEventListener('DOMContentLoaded', function () {
+        var appList = document.getElementById('app-list');
+        allowedPathSegments.forEach(function (segment) {
+          var listItem = document.createElement('li');
+          var link = document.createElement('a');
+          link.href = `/${segment}`;
+          link.textContent = segment.charAt(0).toUpperCase() + segment.slice(1);
+          listItem.appendChild(link);
+          appList.appendChild(listItem);
+        });
+        document.getElementById('not-found-content').style.display = 'block';
+      });
+    }
+  </script>
+</head>
+
+<body>
+  <div id="not-found-content" style="display: none">
+    <h1>404</h1>
+    <p>此頁面不存在。請選擇以下應用：</p>
+    <ul id="app-list"></ul>
+  </div>
+</body>
+
+</html>
