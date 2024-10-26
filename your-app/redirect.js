@@ -1,4 +1,4 @@
-var pathSegmentsToKeep = 2;
+var pathSegmentsToKeep = 3;
 // NOTE:
 // project ex:`your-app` 在第幾層目錄
 // 目前是第二層=> https://chiawen81.github.io/test-monorepo/your-app/
